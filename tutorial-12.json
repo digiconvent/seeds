@@ -1,0 +1,46 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "wormtongue@rohan.test", "first_name": "Grima", "last_name": "Wormtongue", "enabled": true }, "password": "dev" },
+        { "body": { "email": "eomer@rohan.test", "first_name": "Eomer", "last_name": "Marshal", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The Court of Edoras", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=wormtongue@rohan.test]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=eomer@rohan.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "the regent's word", "description": "executes automatically after 60 seconds unless a majority of the Court objects", "favour_threshold": 3, "passive_consent": true, "deadline_seconds": 60, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "policy": "<policy.id[name=the regent's word]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=the regent's word]>", "body": { "permission": "iam.group.remove-user" } }
+      ]
+    }
+  ]
+}

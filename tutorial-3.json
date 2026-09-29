@@ -1,0 +1,50 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "samwise@lotr.test", "first_name": "Samwise", "last_name": "Gamgee", "enabled": true }, "password": "dev" },
+        { "body": { "email": "aragorn@lotr.test", "first_name": "Aragorn", "last_name": "Elessar", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The Fellowship", "is_role": true, "parent": "<group.id[name=root]>" } },
+        { "body": { "name": "The White Council", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=samwise@lotr.test]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=aragorn@lotr.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "fast track", "description": "a single fellowship member vouches, no second vote needed", "favour_threshold": 1, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "peer review", "description": "two active approvals required", "favour_threshold": 2, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=fast track]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=peer review]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=fast track]>", "body": { "permission": "iam.user.create" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.user.create" } }
+      ]
+    }
+  ]
+}

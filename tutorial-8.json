@@ -1,0 +1,29 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "gandalf@lotr.test", "first_name": "Gandalf", "last_name": "Grey", "enabled": true }, "password": "dev" },
+        { "body": { "email": "frodo@shire.test", "first_name": "Frodo", "last_name": "Baggins", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The Fellowship", "is_role": true, "parent": "<group.id[name=root]>" } },
+        { "body": { "name": "The White Council", "is_role": true, "parent": "<group.id[name=root]>" } },
+        { "body": { "name": "Istari", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=Istari]>", "body": { "user": "<user.id[email=gandalf@lotr.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=frodo@shire.test]>" } }
+      ]
+    }
+  ]
+}

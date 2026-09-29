@@ -1,0 +1,210 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "gandalf@lotr.test", "first_name": "Gandalf", "last_name": "Grey", "enabled": true }, "password": "dev" },
+        { "body": { "email": "aragorn@lotr.test", "first_name": "Aragorn", "last_name": "Elessar", "enabled": true }, "password": "dev" },
+        { "body": { "email": "legolas@lotr.test", "first_name": "Legolas", "last_name": "Greenleaf", "enabled": true }, "password": "dev" },
+        { "body": { "email": "samwise@lotr.test", "first_name": "Samwise", "last_name": "Gamgee", "enabled": true }, "password": "dev" },
+        { "body": { "email": "frodo@shire.test", "first_name": "Frodo", "last_name": "Baggins", "enabled": true }, "password": "dev" },
+        { "body": { "email": "theoden@rohan.test", "first_name": "Theoden", "last_name": "King", "enabled": true }, "password": "dev" },
+        { "body": { "email": "eomer@rohan.test", "first_name": "Eomer", "last_name": "Marshal", "enabled": true }, "password": "dev" },
+        { "body": { "email": "wormtongue@rohan.test", "first_name": "Grima", "last_name": "Wormtongue", "enabled": true }, "password": "dev" },
+        { "body": { "email": "eowyn@rohan.test", "first_name": "Eowyn", "last_name": "Shieldmaiden", "enabled": true }, "password": "dev" },
+        { "body": { "email": "boromir@lotr.test", "first_name": "Boromir", "last_name": "of Gondor", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "Istari", "is_role": true, "parent": "<group.id[name=root]>", "description": "wizards, holding full system access" } },
+        { "body": { "name": "The White Council", "is_role": true, "parent": "<group.id[name=root]>", "description": "Senior council with authority to approve sensitive operations" } },
+        { "body": { "name": "The Fellowship", "is_role": true, "parent": "<group.id[name=root]>", "description": "Fellowship members with authority to approve routine operations" } },
+        { "body": { "name": "The Court of Edoras", "is_role": true, "parent": "<group.id[name=root]>", "description": "Theoden's household - the only people whose word carries weight in Rohan's own affairs" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=Istari]>", "body": { "user": "<user.id[email=gandalf@lotr.test]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=aragorn@lotr.test]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=legolas@lotr.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=samwise@lotr.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=frodo@shire.test]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=theoden@rohan.test]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=eomer@rohan.test]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=wormtongue@rohan.test]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "user": "<user.id[email=eowyn@rohan.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=boromir@lotr.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "peer review", "description": "two active approvals required", "favour_threshold": 2, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "senior approval", "description": "three senior approvals required", "favour_threshold": 3, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "veto power", "description": "two approvals required; single objection rejects", "favour_threshold": 2, "against_threshold": 1, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "fast track", "description": "a single fellowship member vouches, no second vote needed", "favour_threshold": 1, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "the king's council", "description": "three members of the Court of Edoras must agree", "favour_threshold": 3, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "the regent's word", "description": "executes automatically after 60 seconds unless a majority of the Court objects", "favour_threshold": 3, "passive_consent": true, "deadline_seconds": 60, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "full fellowship", "description": "two in favour, but at least three Fellowship members must weigh in first", "favour_threshold": 2, "quorum": 3, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } },
+        { "body": { "name": "secret ballot", "description": "two White Council votes required; individual votes are not disclosed", "favour_threshold": 2, "anonymous": true, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=peer review]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "policy": "<policy.id[name=senior approval]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "policy": "<policy.id[name=veto power]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=fast track]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "policy": "<policy.id[name=the king's council]>" } },
+        { "group": "<group.id[name=The Court of Edoras]>", "body": { "policy": "<policy.id[name=the regent's word]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=full fellowship]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "policy": "<policy.id[name=secret ballot]>" } },
+        { "group": "<group.id[name=Istari]>", "body": { "policy": "<policy.id[name=full access]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.user.create" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.user.update" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.group.create" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.group.update" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.group.add-user" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.group.remove-user" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.policy.create" } },
+        { "policy": "<policy.id[name=peer review]>", "body": { "permission": "iam.policy.update" } },
+        { "policy": "<policy.id[name=fast track]>", "body": { "permission": "iam.user.create" } },
+        { "policy": "<policy.id[name=the king's council]>", "body": { "permission": "iam.group.remove-user" } },
+        { "policy": "<policy.id[name=the regent's word]>", "body": { "permission": "iam.group.remove-user" } },
+        { "policy": "<policy.id[name=full fellowship]>", "body": { "permission": "iam.policy.update" } },
+        { "policy": "<policy.id[name=senior approval]>", "body": { "permission": "iam.user.delete" } },
+        { "policy": "<policy.id[name=senior approval]>", "body": { "permission": "iam.user.impersonate" } },
+        { "policy": "<policy.id[name=senior approval]>", "body": { "permission": "iam.group.delete" } },
+        { "policy": "<policy.id[name=senior approval]>", "body": { "permission": "iam.policy.delete" } },
+        { "policy": "<policy.id[name=secret ballot]>", "body": { "permission": "iam.policy.delete" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.group.add-policy" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.group.remove-policy" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.policy.add-permission" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.policy.remove-permission" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.policy.add-governing-policy" } },
+        { "policy": "<policy.id[name=veto power]>", "body": { "permission": "iam.policy.remove-governing-policy" } }
+      ]
+    }
+  ],
+  "dtap": [
+    {
+      "as": "gandalf@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "path": "/api/iam/user/<user.id[email=gandalf@lotr.test]>",
+      "policy": "<policy.id[name=full access]>",
+      "body": { "last_name": "White" }
+    },
+    {
+      "as": "samwise@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "name": "merry_create",
+      "path": "/api/iam/user/",
+      "policy": "<policy.id[name=peer review]>",
+      "body": { "email": "merry@lotr.test", "enabled": true, "first_name": "Meriadoc", "last_name": "Brandybuck" }
+    },
+    {
+      "as": "frodo@shire.test",
+      "id": null,
+      "intent": "vote",
+      "submission": "<dtap.id[name=merry_create]>",
+      "vote": 1,
+      "capture": { "merry_uuid": "id" }
+    },
+    {
+      "as": "samwise@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "name": "merry_join",
+      "path": "/api/iam/group/<group.id[name=The Fellowship]>/add-user",
+      "policy": "<policy.id[name=peer review]>",
+      "body": { "user": "<capture.value[name=merry_uuid]>" }
+    },
+    {
+      "as": "frodo@shire.test",
+      "id": null,
+      "intent": "vote",
+      "submission": "<dtap.id[name=merry_join]>",
+      "vote": 1
+    },
+    {
+      "as": "samwise@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "name": "pippin_create",
+      "path": "/api/iam/user/",
+      "policy": "<policy.id[name=peer review]>",
+      "body": { "email": "pippin@lotr.test", "enabled": true, "first_name": "Peregrin", "last_name": "Took" }
+    },
+    {
+      "as": "frodo@shire.test",
+      "id": null,
+      "intent": "vote",
+      "submission": "<dtap.id[name=pippin_create]>",
+      "vote": 1,
+      "capture": { "pippin_uuid": "id" }
+    },
+    {
+      "as": "samwise@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "name": "pippin_join",
+      "path": "/api/iam/group/<group.id[name=The Fellowship]>/add-user",
+      "policy": "<policy.id[name=peer review]>",
+      "body": { "user": "<capture.value[name=pippin_uuid]>" }
+    },
+    {
+      "as": "frodo@shire.test",
+      "id": null,
+      "intent": "vote",
+      "submission": "<dtap.id[name=pippin_join]>",
+      "vote": 1
+    },
+    {
+      "as": "samwise@lotr.test",
+      "id": null,
+      "intent": "submit",
+      "method": "POST",
+      "name": "bilbo_create",
+      "path": "/api/iam/user/",
+      "policy": "<policy.id[name=peer review]>",
+      "body": { "email": "bilbo@shire.test", "enabled": true, "first_name": "Bilbo", "last_name": "Baggins" }
+    },
+    {
+      "as": "wormtongue@rohan.test",
+      "id": null,
+      "intent": "submit",
+      "method": "DELETE",
+      "name": "banish_eomer",
+      "path": "/api/iam/group/<group.id[name=The Court of Edoras]>/remove-user",
+      "policy": "<policy.id[name=the king's council]>",
+      "body": { "user": "<user.id[email=eomer@rohan.test]>" }
+    },
+    {
+      "as": "theoden@rohan.test",
+      "id": null,
+      "intent": "vote",
+      "submission": "<dtap.id[name=banish_eomer]>",
+      "vote": 1
+    }
+  ]
+}

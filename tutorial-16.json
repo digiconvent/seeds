@@ -1,0 +1,48 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "samwise@lotr.test", "first_name": "Samwise", "last_name": "Gamgee", "enabled": true }, "password": "dev" },
+        { "body": { "email": "frodo@shire.test", "first_name": "Frodo", "last_name": "Baggins", "enabled": true }, "password": "dev" },
+        { "body": { "email": "boromir@lotr.test", "first_name": "Boromir", "last_name": "of Gondor", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The Fellowship", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=samwise@lotr.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=frodo@shire.test]>" } },
+        { "group": "<group.id[name=The Fellowship]>", "body": { "user": "<user.id[email=boromir@lotr.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "full fellowship", "description": "two in favour, but at least three Fellowship members must weigh in first", "favour_threshold": 2, "quorum": 3, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The Fellowship]>", "body": { "policy": "<policy.id[name=full fellowship]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=full fellowship]>", "body": { "permission": "iam.policy.update" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "aragorn@lotr.test", "first_name": "Aragorn", "last_name": "Elessar", "enabled": true }, "password": "dev" },
+        { "body": { "email": "legolas@lotr.test", "first_name": "Legolas", "last_name": "Greenleaf", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The White Council", "is_role": true, "parent": "<group.id[name=root]>" } },
+        { "body": { "name": "The Fellowship", "is_role": true, "parent": "<group.id[name=root]>", "description": "the group being deleted in this tutorial" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=aragorn@lotr.test]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=legolas@lotr.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "senior approval", "description": "three senior approvals required", "favour_threshold": 3, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The White Council]>", "body": { "policy": "<policy.id[name=senior approval]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=senior approval]>", "body": { "permission": "iam.group.delete" } }
+      ]
+    }
+  ]
+}

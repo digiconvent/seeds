@@ -1,0 +1,12 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "samwise@lotr.test", "first_name": "Samwise", "last_name": "Gamgee", "enabled": true }, "password": "dev" }
+      ]
+    }
+  ]
+}

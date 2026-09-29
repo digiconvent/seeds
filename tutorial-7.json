@@ -1,0 +1,47 @@
+{
+  "import": [
+    {
+      "entity": "user",
+      "path": "/api/iam/user/",
+      "items": [
+        { "body": { "email": "observer@d9t.test", "first_name": "Observer", "last_name": "Observer", "enabled": true }, "password": "dev" },
+        { "body": { "email": "aragorn@lotr.test", "first_name": "Aragorn", "last_name": "Elessar", "enabled": true }, "password": "dev" },
+        { "body": { "email": "legolas@lotr.test", "first_name": "Legolas", "last_name": "Greenleaf", "enabled": true }, "password": "dev" }
+      ]
+    },
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "The White Council", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-user",
+      "items": [
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=aragorn@lotr.test]>" } },
+        { "group": "<group.id[name=The White Council]>", "body": { "user": "<user.id[email=legolas@lotr.test]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "veto power", "description": "a policy that only exists to be deleted in this tutorial", "favour_threshold": 2 } },
+        { "body": { "name": "secret ballot", "description": "two White Council votes required; individual votes are not disclosed", "favour_threshold": 2, "anonymous": true, "audit_enabled": true, "audit_show_author": true, "audit_show_payload": true } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=The White Council]>", "body": { "policy": "<policy.id[name=secret ballot]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=secret ballot]>", "body": { "permission": "iam.policy.delete" } }
+      ]
+    }
+  ]
+}
