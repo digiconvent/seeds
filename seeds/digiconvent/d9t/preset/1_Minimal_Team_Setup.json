@@ -1,0 +1,31 @@
+{
+  "import": [
+    {
+      "entity": "group",
+      "path": "/api/iam/group/",
+      "items": [
+        { "body": { "name": "Team", "is_role": true, "parent": "<group.id[name=root]>" } }
+      ]
+    },
+    {
+      "entity": "policy",
+      "path": "/api/iam/policy/",
+      "items": [
+        { "body": { "name": "team decision", "description": "any team member can approve", "favour_threshold": 1 } }
+      ]
+    },
+    {
+      "path": "/api/iam/group/{group}/add-policy",
+      "items": [
+        { "group": "<group.id[name=Team]>", "body": { "policy": "<policy.id[name=team decision]>" } }
+      ]
+    },
+    {
+      "path": "/api/iam/policy/{policy}/add-permission",
+      "items": [
+        { "policy": "<policy.id[name=team decision]>", "body": { "permission": "iam.user.create" } },
+        { "policy": "<policy.id[name=team decision]>", "body": { "permission": "iam.group.add-user" } }
+      ]
+    }
+  ]
+}

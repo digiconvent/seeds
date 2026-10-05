@@ -1,0 +1,23 @@
+# Seeds
+
+- preset
+  - 1_Minimal_Team_Setup
+- test
+  - 1_Minimal_DTAP_and_IAM_fixture
+- tutorial
+  - 01_Bilbo_leaves_Bag_End_to_Frodo
+  - 02_Merry_and_Pippin_tag_along
+  - 03_The_council_of_Elrond_convenes
+  - 04_The_council_decides_the_ring_must_be_destroyed
+  - 05_Boromir_objects
+  - 06_The_Fellowship_of_the_Ring_is_formed
+  - 07_The_Shire_meanwhile_the_mayor_of_Michel_Delving
+  - 08_The_choice_at_Khazad_dums_gate
+  - 09_Boromir_tries_to_take_the_ring_by_force
+  - 10_The_Fellowship_breaks
+  - 11_Frodo_goes_on_alone
+  - 12_Grimas_word_becomes_law_by_default
+  - 13_Grimas_attempt_to_banish_Eomer_stalls
+  - 14_Grimas_claimed_authority_is_stripped
+  - 16_The_Entmoot_decides_whether_to_march
+  - 18_The_Red_Book_of_Westmarch

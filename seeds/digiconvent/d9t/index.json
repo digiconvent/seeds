@@ -1,0 +1,132 @@
+{
+  "created": "2026-10-01T11:08:21.979809+13:00",
+  "modified": "2026-10-01T16:42:00.962712+13:00",
+  "contents": {
+    "preset": {
+      "created": "2026-10-01T16:42:00.962712+13:00",
+      "modified": "2026-10-01T16:42:00.962712+13:00",
+      "contents": {
+        "1_Minimal_Team_Setup.json": {
+          "created": "2026-10-01T16:42:00.962712+13:00",
+          "modified": "2026-10-01T16:42:00.962712+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/preset/1_Minimal_Team_Setup.json",
+          "hash": "1c45cee40e215dc0977e9eb9a52952fea304aef3ceef5bc24bbbc2407709a650"
+        }
+      }
+    },
+    "test": {
+      "created": "2026-10-01T11:08:21.979809+13:00",
+      "modified": "2026-10-01T11:08:21.979809+13:00",
+      "contents": {
+        "1_Minimal_DTAP_and_IAM_fixture.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/test/1_Minimal_DTAP_and_IAM_fixture.json",
+          "hash": "0989c62ee0dca7aeea5650a4fd0bc24d47e2a5bf957c945ab204b3ebeaf7e0a2"
+        }
+      }
+    },
+    "tutorial": {
+      "created": "2026-10-01T11:08:21.979809+13:00",
+      "modified": "2026-10-01T11:08:21.979809+13:00",
+      "contents": {
+        "01_Bilbo_leaves_Bag_End_to_Frodo.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/01_Bilbo_leaves_Bag_End_to_Frodo.json",
+          "hash": "d977baef180b45abf14a2c225e1d69f65652eb100b03edbc0438621c6318f662"
+        },
+        "02_Merry_and_Pippin_tag_along.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/02_Merry_and_Pippin_tag_along.json",
+          "hash": "f524be006f0c53fd175c0b95051abca0a70b40b5c1290933c57f849b5653553e"
+        },
+        "03_The_council_of_Elrond_convenes.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/03_The_council_of_Elrond_convenes.json",
+          "hash": "9a11913169bb50394c723bf4d7e794152b652a3156dd4fa80006ac8cdc985d97"
+        },
+        "04_The_council_decides_the_ring_must_be_destroyed.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/04_The_council_decides_the_ring_must_be_destroyed.json",
+          "hash": "b0dd433ab57955fc8fcf4d72b319768d908f6be2cdb2dd2eb5d576a714e9c3be"
+        },
+        "05_Boromir_objects.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/05_Boromir_objects.json",
+          "hash": "dbbfc267832d7a670d9ac7789e90f3fd8e04a7443d33195270b6634f97ddf36f"
+        },
+        "06_The_Fellowship_of_the_Ring_is_formed.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/06_The_Fellowship_of_the_Ring_is_formed.json",
+          "hash": "1f31443aeac4889f505a28a00bd5c70a81deb5e64050f6d85f71e5a3e45c7a8f"
+        },
+        "07_The_Shire_meanwhile_the_mayor_of_Michel_Delving.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/07_The_Shire_meanwhile_the_mayor_of_Michel_Delving.json",
+          "hash": "b46ddec947e06b02d3f234307f2a78cd9686bb293f275f34837a234a98306918"
+        },
+        "08_The_choice_at_Khazad_dums_gate.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/08_The_choice_at_Khazad_dums_gate.json",
+          "hash": "463aca85ff27df2d917d86ffb1b7dbb6243f00f65263f90fe129858b1071bd26"
+        },
+        "09_Boromir_tries_to_take_the_ring_by_force.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/09_Boromir_tries_to_take_the_ring_by_force.json",
+          "hash": "017f18ab7ced8d0955a7226a585ee975d22fc5fd1a05b53cccd19306f883f68a"
+        },
+        "10_The_Fellowship_breaks.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/10_The_Fellowship_breaks.json",
+          "hash": "0bf9f5c0b90bffde322621f33ef8b7706afbeadb3a732c6464d796b5cdd2bd95"
+        },
+        "11_Frodo_goes_on_alone.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/11_Frodo_goes_on_alone.json",
+          "hash": "b0dd433ab57955fc8fcf4d72b319768d908f6be2cdb2dd2eb5d576a714e9c3be"
+        },
+        "12_Grimas_word_becomes_law_by_default.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/12_Grimas_word_becomes_law_by_default.json",
+          "hash": "b7430010c0492794008357ae6e22f55b464e82d865fe0dd54166e4416a87edb9"
+        },
+        "13_Grimas_attempt_to_banish_Eomer_stalls.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/13_Grimas_attempt_to_banish_Eomer_stalls.json",
+          "hash": "09b163793930cbfeca73e7966b7da781ec36bfe0379045a8ca54ee2fbbabca48"
+        },
+        "14_Grimas_claimed_authority_is_stripped.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/14_Grimas_claimed_authority_is_stripped.json",
+          "hash": "c7734b584f6b535e8aa187fa4b085ca88cab632f247b4f2612c2dd57ff914479"
+        },
+        "16_The_Entmoot_decides_whether_to_march.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/16_The_Entmoot_decides_whether_to_march.json",
+          "hash": "c3b692cde5c35ccc7b1ea04414e20619d1eacbc1abef7e54e54c7e5812c0c6a2"
+        },
+        "18_The_Red_Book_of_Westmarch.json": {
+          "created": "2026-10-01T11:08:21.979809+13:00",
+          "modified": "2026-10-01T11:08:21.979809+13:00",
+          "url": "https://raw.githubusercontent.com/digiconvent/seeds/main/seeds/digiconvent/d9t/tutorial/18_The_Red_Book_of_Westmarch.json",
+          "hash": "be67c32a5c9a21701841d8015d39736e08753f80058f273ddd1e7e212667b1f9"
+        }
+      }
+    }
+  }
+}
